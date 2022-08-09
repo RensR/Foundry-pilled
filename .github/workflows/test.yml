@@ -1,6 +1,5 @@
-name: test
-
-on: workflow_dispatch
+name: foundry test
+on: [pull_request]
 
 env:
   FOUNDRY_PROFILE: ci
@@ -32,3 +31,13 @@ jobs:
         run: |
           forge test -vvv
         id: test
+
+      - name: Check gas snapshots
+        run: |
+          forge snapshot --check
+        id: gas-check
+
+      - name: Check fmt
+        run: |
+          forge fmt --check
+        id: fmt-check
