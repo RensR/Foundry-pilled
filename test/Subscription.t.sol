@@ -7,7 +7,7 @@ import "../src/mocks/MockERC20.sol";
 import "./TestSetup.t.sol";
 
 contract SubscriptionSetup is TestSetup {
-    uint32 internal constant WITHDRAWAL_DELAY = 2 *60 * 60;
+    uint32 internal constant WITHDRAWAL_DELAY = 2 * 60 * 60;
     uint256 internal constant APPROVED_AMOUNT = 100;
 
     event SubscriptionFunded(address receiver, uint256 funding);
