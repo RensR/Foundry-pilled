@@ -28,8 +28,8 @@ Please install the following:
 
 ## Configuration
 
-Foundry configuration lives in `foundry.toml`. When adding Foundry to an existing project, you probably want to remap the 
-testing and the src folders.
+Foundry works out of the box! But if you need any custom logic, the configuration lives in `foundry.toml`. 
+When adding Foundry to an existing project, you might want to remap the testing and the src folders.
 In this repo we've kept the custom configuration to a minimum, only specifying the `optimizer_runs` value and adding some CI and `fmt` config.
 For more configuration options [check the docs](https://book.getfoundry.sh/config/).
 
