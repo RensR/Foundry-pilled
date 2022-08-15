@@ -136,6 +136,41 @@ contract Subscription_createSubscription is SubscriptionSetup {
 }
 
 /// @notice #fundSubscription
+contract Subscription_fundSubscriptionFuzzing is SubscriptionSetup {
+    function setUp() public virtual override {
+        // Call the setup from the inherited contract
+        TestSetup.setUp();
+
+        // Create a new token to make sure we have access to uint256.Max()
+        s_feeToken = new MockERC20("LNK", "LNK", OWNER, 2**256 - 1);
+
+        // Deploy a new contract with the new fee token
+        s_subscriptionContract = new Subscription(
+            ISubscription.SubscriptionConfig({
+                withdrawalDelay: WITHDRAWAL_DELAY,
+                feeToken: s_feeToken
+            })
+        );
+
+        // Create a subscription with a 0 balance
+        s_subscriptionContract.createSubscription(
+            ISubscription.SubscriptionDetails({receiver: new SubscriptionManager(OWNER), balance: 0})
+        );
+    }
+
+    function testFuzzSuccess(uint256 amount) public {
+        // Zero amount funding always fails and is covered in another test
+        vm.assume(amount > 0);
+
+        // Approve the amount
+        s_feeToken.approve(address(s_subscriptionContract), amount);
+
+        // Act
+        s_subscriptionContract.fundSubscription(OWNER, amount);
+    }
+}
+
+/// @notice #fundSubscription
 contract Subscription_fundSubscription is SubscriptionSetup {
     // Success
     function testSuccess() public {
