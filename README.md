@@ -3,7 +3,7 @@
 Have you found yourself Foundry-pilled but don't know where to start? 
 This repo showcases many of the benefits Foundry could bring to your project! 
 The main benefit being one *single* language for everything related to smart contracts.
-Everything in this repo is written in Solidity: contracts, tests & deployment scripts!
+Everything in this repo is written in Solidity: contracts & tests!
 
 <br/>
 <p align="center">
@@ -13,9 +13,11 @@ Everything in this repo is written in Solidity: contracts, tests & deployment sc
 
 # Getting Started
 
-Installing and configuring Foundry is lightning fast.
+Please read the readme's in the [src](https://github.com/RensR/Foundry-pilled/tree/master/src) and [test](https://github.com/RensR/Foundry-pilled/tree/master/test) folders for more information about the source contracts and the tests.
 
 ## Installation
+
+Installing and configuring Foundry is lightning fast.
 
 Please install the following:
 
