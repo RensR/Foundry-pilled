@@ -4,6 +4,7 @@ Subscription_createSubscription:testSubscriptionAlreadyExistsReverts() (gas: 181
 Subscription_createSubscription:testSuccess() (gas: 169585)
 Subscription_fundSubscription:testFundingAmountNotPositiveReverts() (gas: 10459)
 Subscription_fundSubscription:testSuccess() (gas: 46578)
+Subscription_fundSubscriptionFuzzing:testFuzzSuccess(uint256) (runs: 256, μ: 77717, ~: 77951)
 Subscription_getFeeToken:testSuccess() (gas: 9704)
 Subscription_getSubscription:testNonExistentReceiverSuccess() (gas: 10116)
 Subscription_getSubscription:testSuccess() (gas: 12257)
