@@ -162,6 +162,9 @@ contract Subscription_fundSubscriptionFuzzing is SubscriptionSetup {
         // Zero amount funding always fails and is covered in another test
         vm.assume(amount > 0);
 
+        // change gas usage for testing
+        s_feeToken.approve(address(s_subscriptionContract), amount);
+
         // Approve the amount
         s_feeToken.approve(address(s_subscriptionContract), amount);
 
