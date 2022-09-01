@@ -171,6 +171,34 @@ contract Subscription_fundSubscriptionFuzzing is SubscriptionSetup {
         // Act
         s_subscriptionContract.fundSubscription(OWNER, amount);
     }
+
+    function testFuzz2Success(uint256 amount) public {
+        // Zero amount funding always fails and is covered in another test
+        vm.assume(amount > 0);
+
+        amount -= 1;
+        amount += 1;
+
+        // Approve the amount
+        s_feeToken.approve(address(s_subscriptionContract), amount);
+
+        // Act
+        s_subscriptionContract.fundSubscription(OWNER, amount);
+    }
+
+    function testFuzzLeafsSuccess(bytes32 leaf1, bytes32 leaf2, bytes32 leaf3, bytes32 leaf4)
+        public
+        returns (uint256)
+    {
+        uint256 val1 = uint256(leaf1);
+        uint256 val2 = uint256(leaf2);
+        uint256 val3 = uint256(leaf3);
+        uint256 val4 = uint256(leaf4);
+
+        for (; val1 < val2 && val1 < 2 ** 63; val1 *= 2) {}
+
+        return val4;
+    }
 }
 
 /// @notice #fundSubscription
